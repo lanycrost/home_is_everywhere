@@ -1,0 +1,244 @@
+{
+  Dock = {
+    AutoRaiseLower = No;
+    Applications = (
+      {
+        Forced = No;
+        Name = Logo.WMDock;
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,0";
+        Lock = No;
+        Command = "-";
+      }
+    );
+    Applications1080 = (
+      {
+        Forced = No;
+        Name = Logo.WMDock;
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,0";
+        Lock = No;
+        Command = "-";
+      }
+    );
+    Lowered = Yes;
+    Position = "-64,0";
+  };
+  Clip = {
+    Forced = No;
+    Name = Logo.WMClip;
+    BuggyApplication = No;
+    AutoLaunch = No;
+    Position = "0,0";
+    Lock = No;
+    Command = "-";
+  };
+  Drawers = (
+    {
+      Dock = {
+        AutoCollapse = Yes;
+        Applications = (
+          {
+            Forced = No;
+            Name = firefox.Firefox;
+            DropCommand = "firefox %d";
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "-1,0";
+            Lock = No;
+            PasteCommand = "firefox %s";
+            Command = firefox;
+            Omnipresent = No;
+          },
+          {
+            Forced = No;
+            Name = thunderbird.Thunderbird;
+            DropCommand = "thunderbird %d";
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "-2,0";
+            Lock = No;
+            PasteCommand = "thunderbird %s";
+            Command = thunderbird;
+            Omnipresent = No;
+          },
+          {
+            Forced = No;
+            Name = "telegram-desktop.TelegramDesktop";
+            DropCommand = "telegram-desktop %d";
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "-3,0";
+            Lock = No;
+            PasteCommand = "telegram-desktop %s";
+            Command = "telegram-desktop";
+            Omnipresent = No;
+          },
+          {
+            Forced = No;
+            Name = filezilla.Filezilla;
+            DropCommand = "filezilla %d";
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "-5,0";
+            Lock = No;
+            PasteCommand = "filezilla %s";
+            Command = filezilla;
+            Omnipresent = No;
+          },
+          {
+            Forced = No;
+            Name = seamonkey.Seamonkey;
+            DropCommand = "seamonkey %d";
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "-4,0";
+            Lock = No;
+            PasteCommand = "seamonkey %s";
+            Command = seamonkey;
+            Omnipresent = No;
+          }
+        );
+        Collapsed = Yes;
+        AutoAttractIcons = No;
+      };
+      Name = Drawer0;
+      Position = "3776,64";
+    },
+    {
+      Dock = {
+        AutoCollapse = Yes;
+        Applications = (
+          {
+            Forced = No;
+            Name = wmacpi.DockApp;
+            DropCommand = "wmacpi %d";
+            BuggyApplication = No;
+            AutoLaunch = Yes;
+            Position = "-1,0";
+            Lock = Yes;
+            PasteCommand = "wmacpi %s";
+            Command = wmacpi;
+            Omnipresent = No;
+          },
+          {
+            Forced = No;
+            Name = wmwifi.DockApp;
+            DropCommand = "wmwifi %d";
+            BuggyApplication = No;
+            AutoLaunch = Yes;
+            Position = "-2,0";
+            Lock = Yes;
+            PasteCommand = "wmwifi %s";
+            Command = wmwifi;
+            Omnipresent = No;
+          },
+          {
+            Forced = No;
+            Name = wmifinfo.wmifinfo;
+            DropCommand = "wmifinfo %d";
+            BuggyApplication = No;
+            AutoLaunch = Yes;
+            Position = "-3,0";
+            Lock = Yes;
+            PasteCommand = "wmifinfo %s";
+            Command = wmifinfo;
+            Omnipresent = No;
+          },
+          {
+            Forced = No;
+            Name = wmcpuload.DockApp;
+            DropCommand = "wmcpuload %d";
+            BuggyApplication = No;
+            AutoLaunch = Yes;
+            Position = "-4,0";
+            Lock = Yes;
+            PasteCommand = "wmcpuload %s";
+            Command = wmcpuload;
+            Omnipresent = No;
+          },
+          {
+            Forced = No;
+            Name = wmmisc.wmmisc;
+            DropCommand = "wmmisc %d";
+            BuggyApplication = No;
+            AutoLaunch = Yes;
+            Position = "-5,0";
+            Lock = Yes;
+            PasteCommand = "wmmisc %s";
+            Command = wmmisc;
+            Omnipresent = No;
+          }
+        );
+        Collapsed = Yes;
+        AutoAttractIcons = No;
+      };
+      Name = Drawer1;
+      Position = "3776,128";
+    }
+  );
+  Workspaces = (
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        AutoCollapse = No;
+        Applications = (
+          {
+            Forced = No;
+            Name = xterm.XTerm;
+            DropCommand = "xterm %d";
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "0,1";
+            Lock = Yes;
+            PasteCommand = "xterm %s";
+            Command = xterm;
+            Omnipresent = No;
+          },
+          {
+            Forced = No;
+            Name = wmclock.WMClock;
+            DropCommand = "wmclock %d";
+            BuggyApplication = No;
+            AutoLaunch = Yes;
+            Position = "0,2";
+            Lock = Yes;
+            PasteCommand = "wmclock %s";
+            Command = wmclock;
+            Omnipresent = No;
+          },
+          {
+            Forced = No;
+            Name = wmix.wmix;
+            DropCommand = "wmix %d";
+            BuggyApplication = No;
+            AutoLaunch = Yes;
+            Position = "0,3";
+            Lock = Yes;
+            PasteCommand = "wmix %s";
+            Command = wmix;
+            Omnipresent = No;
+          },
+          {
+            Forced = No;
+            Name = java.Java;
+            DropCommand = "dbeaver %d";
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "0,4";
+            Lock = No;
+            PasteCommand = "dbeaver %s";
+            Command = dbeaver;
+            Omnipresent = No;
+          }
+        );
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = "Workspace 1";
+    }
+  );
+}

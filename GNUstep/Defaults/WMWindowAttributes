@@ -1,0 +1,32 @@
+{
+  firefox.Firefox = {
+    Icon = firefox.Firefox.xpm;
+  };
+  soffice.Soffice = {
+    Icon = soffice.Soffice.xpm;
+  };
+  Drawer1.WMDrawer = {
+    Icon = monitor.png;
+  };
+  thunderbird.Thunderbird = {
+    Icon = thunderbird.Thunderbird.xpm;
+  };
+  xterm.XTerm = {
+    Icon = "xterm-color_48x48.xpm";
+  };
+  Drawer0.WMDrawer = {
+    Icon = browser.png;
+  };
+  filezilla.Filezilla = {
+    Icon = filezilla.Filezilla.xpm;
+  };
+  seamonkey.Seamonkey = {
+    Icon = seamonkey.Seamonkey.xpm;
+  };
+  java.Java = {
+    Icon = dbeaver.png;
+  };
+  "telegram-desktop.TelegramDesktop" = {
+    Icon = "telegram-desktop.TelegramDesktop.xpm";
+  };
+}
