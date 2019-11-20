@@ -1,16 +1,5 @@
 # My Home (or Dotfiles)
 
-```
-
-██╗      █████╗ ███╗   ██╗██╗   ██╗ ██████╗██████╗  ██████╗ ███████╗████████╗
-██║     ██╔══██╗████╗  ██║╚██╗ ██╔╝██╔════╝██╔══██╗██╔═══██╗██╔════╝╚══██╔══╝
-██║     ███████║██╔██╗ ██║ ╚████╔╝ ██║     ██████╔╝██║   ██║███████╗   ██║   
-██║     ██╔══██║██║╚██╗██║  ╚██╔╝  ██║     ██╔══██╗██║   ██║╚════██║   ██║   
-███████╗██║  ██║██║ ╚████║   ██║   ╚██████╗██║  ██║╚██████╔╝███████║   ██║   
-╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝    ╚═════╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝    
-
-```
-
 My personal config files for desktop, development and everyday environment setup in UNIX and Linux environments. With inspiration from [xero](https://github.com/xero/dotfiles), uses [GNU Stow](http://www.gnu.org/software/stow/) a free, portable, lightweight symlink farm manager to link files one folder deep to the folder above.
 
 > __NOTE__: Tested and used mostly with ArchLinux.
