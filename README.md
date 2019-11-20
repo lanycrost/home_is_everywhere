@@ -25,6 +25,11 @@ My personal config files for desktop, development and everyday environment setup
 
 - ```stow -D zsh```
 
+5. Apply Secrets
+
+- ```sed 's/{WECHALLTOKEN}/SOMETHING/g' .zsh/06-secrets.zsh > .zsh/06-secrets.zsh```
+- ```sed 's/{CODESTATS_API_KEY}/SOMETHING/g' .zsh/06-secrets.zsh > .zsh/06-secrets.zsh```
+- ```sed 's/{CODESTATS_API_KEY}/SOMETHING/g' .vim/secrets.vim > .vim/secrets.vim```
 
 ## Softwares
 
@@ -51,8 +56,3 @@ My personal config files for desktop, development and everyday environment setup
 - [wmacpi](https://www.dockapps.net/wmacpi) - Dockapp provide full information about ACPI power sources (about laptop battary).
 - [wmix](https://www.dockapps.net/wmix) - Dockapp mixer for OSS or ALSA. Allows toggling record source, muting individual channels, adjusting volume and balance.
 - [wmclock](https://www.dockapps.net/wmclock) - Dockapp displays the date and time.
-
-## Secrets
-
-- .vimrc
-- .zshrc
