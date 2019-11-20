@@ -4,6 +4,7 @@ go/
 /Downloads/
 /Music/
 GNUStep/
+/.gitconfig
 /.tmux.conf
 /.tmux.conf.local
 /.vimrc
