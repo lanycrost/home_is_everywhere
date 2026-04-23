@@ -1,0 +1,30 @@
+" Tridactyl configuration — vim bindings for Firefox
+
+" General
+set smoothscroll true
+set editorcmd nvim
+
+" Search engines
+set searchurls.g https://www.google.com/search?q=%s
+set searchurls.gh https://github.com/search?q=%s
+set searchurls.yt https://www.youtube.com/results?search_query=%s
+set searchurls.mdn https://developer.mozilla.org/en-US/search?q=%s
+set searchurls.npm https://www.npmjs.com/search?q=%s
+set searchurls.rs https://doc.rust-lang.org/std/?search=%s
+
+" Bindings
+bind j scrollline 5
+bind k scrollline -5
+bind J tabnext
+bind K tabprev
+bind d composite tabprev; tabclose #
+bind u undo
+bind / fillcmdline find
+bind n findnext 1
+bind N findnext -1
+bind <Escape> composite mode normal; hidecmdline; nohlsearch
+
+" Disable on certain sites
+autocmd DocStart mail.google.com mode ignore
+autocmd DocStart docs.google.com mode ignore
+autocmd DocStart sheets.google.com mode ignore

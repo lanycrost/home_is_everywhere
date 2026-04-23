@@ -1,0 +1,10 @@
+# chezmoi configuration
+# This file is a template — chezmoi evaluates it on `chezmoi init`
+
+[data]
+    name = "Khachatur Ashotyan"
+    email = "ping@lanycrost.net"
+    gpg_key = "A3C991A3ADDA8B91"
+{{- if eq .chezmoi.os "darwin" }}
+    brew_prefix = "/opt/homebrew"
+{{- end }}

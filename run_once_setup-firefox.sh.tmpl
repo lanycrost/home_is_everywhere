@@ -1,0 +1,19 @@
+#!/bin/bash
+# Symlink user.js into the default Firefox profile
+{{ if eq .chezmoi.os "darwin" -}}
+set -euo pipefail
+
+FIREFOX_DIR="$HOME/Library/Application Support/Firefox/Profiles"
+USERJS="{{ .chezmoi.sourceDir }}/firefox/user.js"
+
+if [ -d "$FIREFOX_DIR" ] && [ -f "$USERJS" ]; then
+    # Find the default profile directory (ends with .default-release)
+    PROFILE=$(find "$FIREFOX_DIR" -maxdepth 1 -name "*.default-release" -type d | head -1)
+    if [ -n "$PROFILE" ]; then
+        ln -sf "$USERJS" "$PROFILE/user.js"
+        echo "==> Linked user.js to $PROFILE"
+    else
+        echo "==> No default Firefox profile found. Launch Firefox first, then re-run."
+    fi
+fi
+{{ end -}}

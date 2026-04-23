@@ -1,0 +1,16 @@
+# Taps
+tap "FelixKratz/formulae"
+tap "nikitabobko/tap"
+
+# GUI applications
+cask "ghostty"
+cask "firefox"
+cask "raycast"
+cask "nikitabobko/tap/aerospace"
+cask "hashicorp/tap/hashicorp-vagrant"
+cask "ngrok"
+cask "vlc"
+
+# Formulae from taps
+brew "FelixKratz/formulae/sketchybar"
+brew "FelixKratz/formulae/borders"

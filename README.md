@@ -1,58 +1,144 @@
-# My Home (or Dotfiles)
+# home_is_everywhere
 
-My personal config files for desktop, development and everyday environment setup in UNIX and Linux environments. With inspiration from [xero](https://github.com/xero/dotfiles), uses [GNU Stow](http://www.gnu.org/software/stow/) a free, portable, lightweight symlink farm manager to link files one folder deep to the folder above.
+Personal dotfiles for macOS, managed with [chezmoi](https://chezmoi.io).
 
-> __NOTE__: Tested and used mostly with ArchLinux.
+## Quick Start
 
-## Setup Example
+### Prerequisites
 
-1. Install gnu stow.
+- macOS (Apple Silicon)
+- [Homebrew](https://brew.sh)
+- Xcode Command Line Tools: `xcode-select --install`
 
-- ```sudo pacman -S stow```
-- ```sudo apt-get install stow```
-- ```brew install stow```
+### Install
 
-2. Install [git](https://git-scm.com/) and clone these repository.
+```bash
+# Install chezmoi and apply dotfiles
+brew install chezmoi
+chezmoi init --apply lanycrost/home_is_everywhere
+```
 
-- ```git clone https://github.com/lanycrost/home_is_everywhere.git```
+### Update
 
-3. Enter to these directory and setup configuration.
+```bash
+chezmoi update
+```
 
-- ```cd home_is_everywhere```
-- ```stow zsh``` (or ```sudo stow zsh -t /root``` setup zsh settings for root user).
+## What's Included
 
-4. Remove configuration.
+### Terminal Core
+| Tool | Purpose |
+|------|---------|
+| [Ghostty](https://ghostty.org) | GPU-accelerated terminal emulator |
+| [fish](https://fishshell.com) | Modern shell |
+| [Starship](https://starship.rs) | Cross-shell prompt |
+| [tmux](https://github.com/tmux/tmux) + [oh-my-tmux](https://github.com/gpakosz/.tmux) | Terminal multiplexer |
+| [fzf](https://github.com/junegunn/fzf) | Fuzzy finder |
+| [zoxide](https://github.com/ajeetdsouza/zoxide) | Smart directory jumper |
+| [Atuin](https://atuin.sh) | Synced shell history |
+| [direnv](https://direnv.net) | Per-project environment |
 
-- ```stow -D zsh```
+### Modern Coreutils
+| Tool | Replaces |
+|------|----------|
+| [ripgrep](https://github.com/BurntSushi/ripgrep) | grep |
+| [fd](https://github.com/sharkdp/fd) | find |
+| [bat](https://github.com/sharkdp/bat) | cat |
+| [eza](https://github.com/eza-community/eza) | ls |
 
-5. Apply Secrets
+### Editor
+| Tool | Purpose |
+|------|---------|
+| [Neovim](https://neovim.io) + [LazyVim](https://lazyvim.github.io) | Editor with IDE features |
 
-- ```sed 's/{WECHALLTOKEN}/SOMETHING/g' .zsh/06-secrets.zsh > .zsh/06-secrets.zsh```
-- ```sed 's/{CODESTATS_API_KEY}/SOMETHING/g' .zsh/06-secrets.zsh > .zsh/06-secrets.zsh```
-- ```sed 's/{CODESTATS_API_KEY}/SOMETHING/g' .vim/secrets.vim > .vim/secrets.vim```
+LazyVim extras enabled: Go, Python, Rust, TypeScript, JSON, YAML, Docker, Terraform, Ansible
 
-## Softwares
+### macOS Desktop
+| Tool | Purpose |
+|------|---------|
+| [AeroSpace](https://github.com/nikitabobko/AeroSpace) | i3-like tiling window manager |
+| [SketchyBar](https://github.com/FelixKratz/SketchyBar) | Custom menu bar |
+| [JankyBorders](https://github.com/FelixKratz/JankyBorders) | Window border highlights |
+| [Raycast](https://raycast.com) | Application launcher |
+| [Karabiner Elements](https://karabiner-elements.pqrs.org) | Keyboard customization (Oryx/ZSA) |
 
-- [WindowMaker](https://www.windowmaker.org/) - Highly configurable X11 window manager.
-- [XScreenSaver](https://www.jwz.org/xscreensaver/) - XScreenSaver is the standard screen saver collection shipped on most Linux and Unix systems running the X11 Window System.
-- [xterm](https://invisible-island.net/xterm/) - Terminal emulator for the X Window System.
-- [zsh](https://www.zsh.org/) - Zsh is a shell designed for interactive use. I use it with [Oh My ZSH!](https://ohmyz.sh/) framework.
-- [vim](https:/www./vim.org/) - Vim is a highly configurable text editor for efficiently creating and changing any kind of text.
-- [tmux](https://tmux.github.io/) - TMUX is a terminal multiplexer. It lets you switch easily between several programs in one terminal.
-- [git](https://git-scm.com/) - Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
-- [gnupg](https://www.gnupg.org/) - GnuPG allows you to encrypt and sign your data and communications. it features a versatile key management system, along with access modules for all kinds of public key directories.
-- [pass](https://www.passwordstore.org/) - Simple password management utility which follows the [UNIX philosophy](en.wikipedia.org/wiki/Unix_philosophy).
-- [Midnight Commander](https://midnight-commander.org/) - GNU Midnight Commander is a visual file manager based on versatile text interfaces, which allows it to work on a regular console, inside an X Window terminal, over SSH connections and all kinds of remote shells.
-- [Powerline fonts](https://github.com/powerline/fonts) - Prowerline fonts collection (I preferred one is [Hack](https://sourcefoundry.org/hack/)).
-- [dbeaver](https://dbeaver.io/) - Free multi-platform database tool.
-- [CodeStats](https://codestats.net/) - Plugins for vim and zsh.
+### Browser
+| Tool | Purpose |
+|------|---------|
+| [Firefox](https://www.mozilla.org/firefox/) | Web browser (privacy-hardened via `user.js`) |
+| [Tridactyl](https://github.com/tridactyl/tridactyl) | Vim keybindings for Firefox |
 
-## WindowMaker DockApps
+### Development
+| Tool | Purpose |
+|------|---------|
+| [mise](https://mise.jdx.dev) | Runtime manager (Node, Python, Go, Rust) |
+| [Docker](https://www.docker.com) | Containers |
+| [Terraform](https://www.terraform.io) / [Terragrunt](https://terragrunt.gruntwork.io) | Infrastructure as code |
+| [Ansible](https://www.ansible.com) | Configuration management |
+| [kubectl](https://kubernetes.io/docs/tasks/tools/) / [Helm](https://helm.sh) / [Kind](https://kind.sigs.k8s.io) | Kubernetes |
+| [AWS CLI](https://aws.amazon.com/cli/) | Cloud |
 
-- [wmmisc](https://www.dockapps.net/wmmisc) - Dockapp for monitoring the amount of users logged in, the total number of processes, the number of running (or ‘alive’) processes, the total number of forks and the system load average.
-- [wmcpuload](https://www.dockapps.net/wmcpuload) - Dockapp for monitoring CPU usage.
-- [wmifinfo](https://www.dockapps.net/wmifinfo) - Dockapp which showing basic network info for all available interfaces. It shows IP address, netmask, gateway and MAC address. A bit like ifconfig.
-- [wmwifi](https://www.dockapps.net/wmwifi) - Dockapp for wireless network interface monitoring.
-- [wmacpi](https://www.dockapps.net/wmacpi) - Dockapp provide full information about ACPI power sources (about laptop battary).
-- [wmix](https://www.dockapps.net/wmix) - Dockapp mixer for OSS or ALSA. Allows toggling record source, muting individual channels, adjusting volume and balance.
-- [wmclock](https://www.dockapps.net/wmclock) - Dockapp displays the date and time.
+## Brewfile Organization
+
+Packages are split into category-specific Brewfiles:
+
+- `Brewfile.core-cli` — shell, editor, terminal tools
+- `Brewfile.dev-tools` — runtimes, cloud, infrastructure
+- `Brewfile.apps` — GUI applications
+- `Brewfile.fonts` — Nerd Fonts
+
+## Key Customizations
+
+- **Shell:** fish with modular `conf.d/` configs, Fisher plugins, Starship prompt
+- **Editor:** LazyVim with catppuccin-mocha theme, leader=comma, vim-tmux-navigator
+- **Tmux:** backtick prefix, vi-mode, seamless Neovim pane navigation (C-h/j/k/l), session resurrection
+- **Tiling:** AeroSpace with i3-like manual tiling, alt as mod key
+- **Status bar:** SketchyBar with workspaces, app name, media, CPU/RAM, clock, battery
+- **Theme:** Catppuccin Mocha across Ghostty, Neovim, SketchyBar, and JankyBorders
+
+## Post-Install: macOS Permissions
+
+Some apps need manual permission grants after first launch. macOS will prompt you automatically, but here's the full list:
+
+### Accessibility (System Settings > Privacy & Security > Accessibility)
+- **AeroSpace** — required for window management
+- **Raycast** — required for app launching and shortcuts
+- **SketchyBar** — required for status bar
+
+### Screen Recording (System Settings > Privacy & Security > Screen Recording)
+- **AeroSpace** — needed for some window operations
+
+### Full Disk Access (optional)
+- **Ghostty** — only if you need terminal access to protected directories
+
+### macOS UI Cleanup
+For a clean tiling setup, hide the default macOS bars:
+
+1. **Hide the Dock** — System Settings > Desktop & Dock > "Automatically hide and show the Dock" → **On**
+2. **Hide the menu bar** — System Settings > Control Center > "Automatically hide and show the menu bar" → **Always**
+3. **Disable recent apps in Dock** — System Settings > Desktop & Dock > "Show suggested and recent apps in Dock" → **Off**
+
+### Manual Extension Installs
+These cannot be automated and must be installed by hand:
+
+1. **Tridactyl (Vim for Firefox)** — Install from [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/tridactyl-vim/). After installing, the config at `~/.config/tridactyl/tridactylrc` is loaded automatically. To force reload: press `:` in Firefox and run `source ~/.config/tridactyl/tridactylrc`.
+
+### Services to Start
+```bash
+# Start SketchyBar (auto-starts on login after this)
+brew services start sketchybar
+
+# Start JankyBorders (auto-starts on login after this)
+brew services start borders
+
+# AeroSpace — just launch it once, start-at-login is in the config
+open -a AeroSpace
+```
+
+## History
+
+The original ArchLinux/GNU Stow setup (WindowMaker, Vim, Zsh) is preserved at tag [`v1-stow-archlinux`](../../tree/v1-stow-archlinux).
+
+## License
+
+[BSD 3-Clause](LICENSE)

@@ -1,0 +1,5 @@
+# oh-my-tmux — base .tmux.conf from gpakosz/.tmux
+[".tmux.conf"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/gpakosz/.tmux/master/.tmux.conf"
+    refreshPeriod = "168h"

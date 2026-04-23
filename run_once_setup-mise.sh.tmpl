@@ -1,0 +1,12 @@
+#!/bin/bash
+# Install runtimes managed by mise (Node, Python, Go, Rust)
+{{ if eq .chezmoi.os "darwin" -}}
+set -euo pipefail
+
+if command -v mise &>/dev/null; then
+    echo "==> Installing mise runtimes..."
+    mise install --yes
+else
+    echo "==> mise not found, skipping runtime install"
+fi
+{{ end -}}

@@ -1,0 +1,63 @@
+# oh-my-tmux local overrides
+# See: https://github.com/gpakosz/.tmux
+#
+# oh-my-tmux already provides:
+#   - prefix + - / _     splits (horizontal / vertical)
+#   - prefix + h / v     splits (horizontal / vertical, aliases)
+#   - prefix + j/k/l     select pane (down/up/right)
+#   - prefix + H/J/K/L   resize pane
+#   - prefix + r         reload config
+#   - prefix + Enter     copy mode
+#   - vi copy mode keys
+#   - mouse support
+#   - base index 1
+#   - renumber windows
+#
+# We only add what oh-my-tmux doesn't provide.
+
+# -- General -------------------------------------------------------------------
+
+# Use fish shell
+set -g default-shell /opt/homebrew/bin/fish
+
+# True color support (Ghostty)
+set -g default-terminal "tmux-256color"
+set -ag terminal-overrides ",xterm-ghostty:RGB"
+
+# No escape delay (important for Neovim)
+set -sg escape-time 0
+
+# Increase history
+set -g history-limit 50000
+
+# -- Navigation ----------------------------------------------------------------
+
+# vim-tmux-navigator (C-h/j/k/l for seamless pane navigation without prefix)
+# This is the only custom navigation — allows moving between Neovim and tmux
+# panes with the same keys, no prefix needed
+is_vim="ps -o state= -o comm= -t '#{pane_tty}' | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|l?n?vim?x?|fzf)(diff)?$'"
+bind-key -n 'C-h' if-shell "$is_vim" 'send-keys C-h' 'select-pane -L'
+bind-key -n 'C-j' if-shell "$is_vim" 'send-keys C-j' 'select-pane -D'
+bind-key -n 'C-k' if-shell "$is_vim" 'send-keys C-k' 'select-pane -U'
+bind-key -n 'C-l' if-shell "$is_vim" 'send-keys C-l' 'select-pane -R'
+
+# Unbind oh-my-tmux split aliases (use prefix + - and _ instead)
+unbind -T prefix h
+unbind -T prefix v
+
+# macOS clipboard for copy mode
+bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "pbcopy"
+bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "pbcopy"
+
+# -- Plugins -------------------------------------------------------------------
+
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+
+# Resurrect settings
+set -g @resurrect-capture-pane-contents 'on'
+set -g @continuum-restore 'on'
+
+# Initialize TPM (keep at bottom)
+run '~/.tmux/plugins/tpm/tpm'

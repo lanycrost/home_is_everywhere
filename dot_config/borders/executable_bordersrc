@@ -1,0 +1,7 @@
+#!/bin/bash
+# JankyBorders configuration
+borders \
+  active_color=0xff89b4fa \
+  inactive_color=0xff313244 \
+  width=3.0 \
+  style=round

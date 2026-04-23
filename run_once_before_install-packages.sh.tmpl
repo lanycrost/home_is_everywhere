@@ -1,0 +1,18 @@
+#!/bin/bash
+# Install Homebrew packages from all Brewfiles
+{{ if eq .chezmoi.os "darwin" -}}
+set -euo pipefail
+
+# Install Homebrew if missing
+if ! command -v brew &>/dev/null; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    eval "$({{ .brew_prefix }}/bin/brew shellenv)"
+fi
+
+CHEZMOI_SOURCE="{{ .chezmoi.sourceDir }}"
+
+for brewfile in "$CHEZMOI_SOURCE"/Brewfile.*; do
+    echo "==> Installing from $(basename "$brewfile")..."
+    brew bundle --file="$brewfile"
+done
+{{ end -}}

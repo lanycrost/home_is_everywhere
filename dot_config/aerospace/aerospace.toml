@@ -1,0 +1,95 @@
+# AeroSpace — i3-like manual tiling window manager
+
+# Start at login
+start-at-login = true
+
+# Normalizations
+enable-normalization-flatten-containers = false
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# Mouse follows focus
+on-focus-changed = ['move-mouse window-lazy-center']
+
+# Notify SketchyBar on workspace change
+exec-on-workspace-change = ['/bin/bash', '-c',
+  'sketchybar --trigger aerospace_workspace_change AEROSPACE_FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
+
+# Gaps
+[gaps]
+inner.horizontal = 8
+inner.vertical = 8
+outer.left = 8
+outer.right = 8
+outer.top = 40
+outer.bottom = 8
+
+# Main mode keybindings (alt as mod)
+[mode.main.binding]
+
+# Launch apps
+alt-shift-enter = 'exec-and-forget open -a Ghostty'
+alt-b = 'exec-and-forget open -a Firefox'
+
+# Window management
+alt-q = 'close'
+alt-e = 'balance-sizes'
+alt-shift-r = 'reload-config'
+alt-tab = 'workspace next'
+alt-shift-tab = 'workspace prev'
+alt-shift-f = 'focus-monitor next'
+alt-shift-m = ['move-node-to-monitor next', 'focus-monitor next']
+
+# Focus (alt + h/j/k/l)
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# Move windows (alt-shift + h/j/k/l)
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+# Split orientation
+alt-v = 'split horizontal'
+alt-s = 'split vertical'
+
+# Layout
+alt-f = 'fullscreen'
+alt-shift-space = 'layout floating tiling'
+alt-comma = 'layout tiles horizontal vertical'
+
+# Workspaces (alt + number)
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
+alt-9 = 'workspace 9'
+
+# Move to workspace (alt-shift + number)
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-5 = 'move-node-to-workspace 5'
+alt-shift-6 = 'move-node-to-workspace 6'
+alt-shift-7 = 'move-node-to-workspace 7'
+alt-shift-8 = 'move-node-to-workspace 8'
+alt-shift-9 = 'move-node-to-workspace 9'
+
+# Resize mode
+alt-r = 'mode resize'
+
+[mode.resize.binding]
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
+enter = 'mode main'
+esc = 'mode main'

@@ -1,0 +1,89 @@
+#!/bin/bash
+# SketchyBar configuration — functional layout
+
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+
+# Bar appearance
+sketchybar --bar \
+  height=32 \
+  position=top \
+  padding_left=8 \
+  padding_right=8 \
+  color=0xff1e1e2e \
+  shadow=off
+
+# Default item settings
+sketchybar --default \
+  icon.font="JetBrainsMono Nerd Font:Bold:14.0" \
+  icon.color=0xffcdd6f4 \
+  label.font="JetBrainsMono Nerd Font:Regular:13.0" \
+  label.color=0xffcdd6f4 \
+  padding_left=4 \
+  padding_right=4
+
+# -- Left: Workspaces (AeroSpace integration) --
+sketchybar --add event aerospace_workspace_change
+
+for i in $(seq 1 9); do
+  sketchybar --add item space.$i left \
+    --set space.$i \
+      icon=$i \
+      icon.padding_left=8 \
+      icon.padding_right=8 \
+      background.color=0xff313244 \
+      background.corner_radius=5 \
+      background.height=24 \
+      background.drawing=off \
+      click_script="aerospace workspace $i" \
+      script="$PLUGIN_DIR/space.sh" \
+    --subscribe space.$i aerospace_workspace_change
+done
+
+# -- Center: Front App --
+sketchybar --add item front_app center \
+  --set front_app \
+    icon.drawing=off \
+    label.font="JetBrainsMono Nerd Font:Bold:13.0" \
+    script="$PLUGIN_DIR/front_app.sh" \
+  --subscribe front_app front_app_switched
+
+# -- Center: Media --
+sketchybar --add item media center \
+  --set media \
+    icon=󰝚 \
+    icon.color=0xffa6e3a1 \
+    label.max_chars=40 \
+    scroll_texts=on \
+    script="$PLUGIN_DIR/media.sh" \
+  --subscribe media media_change
+
+# -- Right: Battery --
+sketchybar --add item battery right \
+  --set battery \
+    update_freq=60 \
+    script="$PLUGIN_DIR/battery.sh" \
+  --subscribe battery system_woke power_source_change
+
+# -- Right: Clock --
+sketchybar --add item clock right \
+  --set clock \
+    update_freq=30 \
+    icon=󰥔 \
+    script="$PLUGIN_DIR/clock.sh"
+
+# -- Right: RAM --
+sketchybar --add item ram right \
+  --set ram \
+    update_freq=10 \
+    icon=󰍛 \
+    script="$PLUGIN_DIR/ram.sh"
+
+# -- Right: CPU --
+sketchybar --add item cpu right \
+  --set cpu \
+    update_freq=5 \
+    icon=󰻠 \
+    script="$PLUGIN_DIR/cpu.sh"
+
+# Force update on launch
+sketchybar --update

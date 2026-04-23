@@ -1,0 +1,25 @@
+#!/bin/bash
+# Set fish as default shell and install Fisher plugin manager
+{{ if eq .chezmoi.os "darwin" -}}
+set -euo pipefail
+
+FISH="{{ .brew_prefix }}/bin/fish"
+
+# Add fish to allowed shells if not present
+if ! grep -q "$FISH" /etc/shells; then
+    echo "$FISH" | sudo tee -a /etc/shells
+fi
+
+# Set fish as default shell
+if [ "$SHELL" != "$FISH" ]; then
+    chsh -s "$FISH"
+fi
+
+# Install Fisher
+$FISH -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
+
+# Install plugins from fish_plugins
+if [ -f "$HOME/.config/fish/fish_plugins" ]; then
+    $FISH -c "fisher update"
+fi
+{{ end -}}

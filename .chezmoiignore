@@ -1,0 +1,10 @@
+README.md
+HOTKEYS.md
+LICENSE
+docs/
+firefox/
+Brewfile.*
+.gitignore
+.git/
+.chezmoiexternal.toml
+.chezmoi.toml.tmpl
